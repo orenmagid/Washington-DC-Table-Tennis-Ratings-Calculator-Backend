@@ -10,8 +10,9 @@ tuesday_group = Group.create(name: "Tuesday Group")
 
 session_one = Session.create(date: Time.new(2020, 10, 13, 19, 00, 00))
 session_two = Session.create(date: Time.new(2020, 10, 20, 19, 00, 00))
+session_three = Session.create(date: Time.new(2020, 10, 27, 19, 00, 00))
 
-tuesday_group.sessions.push(session_one, session_two)
+tuesday_group.sessions.push(session_one, session_two, session_three)
 
 players = [
   oren = Player.create(name: "Oren Magid", email: "oren.michael.magid@gmail.com"),
@@ -65,7 +66,7 @@ oren_vs_wondu_match.save
 puts("\n" * 6)
 puts("********************************** Session One: #{session_one.date.strftime("%d/%m/%Y, %I:%M %p")} **********************************")
 puts("***************** Starting Ratings *****************")
-session_one.log_ratings
+tuesday_group.log_ratings
 session_one.calculate_ratings
 puts("\n" * 3)
 puts("***************** Ending Ratings *****************")
@@ -151,9 +152,43 @@ wondu_vs_abhi_match.save
 
 puts("********************************** Session Two: #{session_two.date.strftime("%m/%d/%Y, %I:%M %p")} **********************************")
 puts("***************** Starting Ratings *****************")
-session_two.log_ratings
+tuesday_group.log_ratings
 session_two.calculate_ratings
 puts("\n" * 3)
 puts("***************** Ending Ratings *****************")
 session_two.log_ratings
+puts("\n" * 6)
+
+oren_vs_john_match = Match.create(session_id: session_three.id)
+oren_vs_john_match.players.push(oren, john)
+oren_vs_john_match.winner_id = oren.id
+oren_vs_john_match.save
+
+oren_vs_wondu_match = Match.create(session_id: session_three.id)
+oren_vs_wondu_match.players.push(oren, wondu)
+oren_vs_wondu_match.winner_id = oren.id
+oren_vs_wondu_match.save
+
+oren_vs_abhi_match = Match.create(session_id: session_three.id)
+oren_vs_abhi_match.players.push(oren, abhi)
+oren_vs_abhi_match.winner_id = oren.id
+oren_vs_abhi_match.save
+
+oren_vs_jeremie_match = Match.create(session_id: session_three.id)
+oren_vs_jeremie_match.players.push(oren, jeremie)
+oren_vs_jeremie_match.winner_id = oren.id
+oren_vs_jeremie_match.save
+
+oren_vs_zack_match = Match.create(session_id: session_three.id)
+oren_vs_zack_match.players.push(oren, zack)
+oren_vs_zack_match.winner_id = oren.id
+oren_vs_zack_match.save
+
+puts("********************************** Session Two: #{session_three.date.strftime("%m/%d/%Y, %I:%M %p")} **********************************")
+puts("***************** Starting Ratings *****************")
+tuesday_group.log_ratings
+session_three.calculate_ratings
+puts("\n" * 3)
+puts("***************** Ending Ratings *****************")
+session_three.log_ratings
 puts("\n" * 6)
