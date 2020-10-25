@@ -26,4 +26,4 @@ Things you may want to cover:
 ## To do
 
 - Implement negative version of first adjustment
-- Implement seconod adjustment
+- Implement second adjustment
