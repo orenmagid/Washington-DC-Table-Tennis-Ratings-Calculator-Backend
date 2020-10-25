@@ -1,2 +1,0 @@
-class PlayerGroupsController < ApplicationController
-end
