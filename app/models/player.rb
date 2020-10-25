@@ -4,5 +4,10 @@ class Player < ApplicationRecord
   has_many :player_matches
   has_many :matches, through: :player_matches
   has_many :ratings
-  has_many :sessions, through: :ratings
+
+  def log_ratings()
+    Player.all.sort { |a, b| a.ratings.last.value <=> b.ratings.last.value }.each do |player|
+      puts("#{player.name}: #{player.ratings.last.value}")
+    end
+  end
 end

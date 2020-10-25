@@ -100,26 +100,54 @@ class Session < ApplicationRecord
       end
     end
 
-    adjusted_ratings_hash = ratings_hash.select do |player_id, rating_value|
+    first_tier_adjusted_ratings_hash = ratings_hash.select do |player_id, rating_value|
       player = Player.find { |p| p.id == player_id }
       rating_change = rating_value - player.ratings.last.value
-      rating_change >= 50 && rating_change <= 74
+      should_be_adjusted_up = rating_change >= 50
+      # should_be_adjusted_up = rating_change >= 50 && rating_change <= 74
+      # should_be_adjusted_down = rating_change <= -50 && rating_change <= -74
+      # should_be_adjusted_up || should_be_adjusted_down
+      should_be_adjusted_up
     end
 
-    if adjusted_ratings_hash.keys.length > 0 && first_pass
-      self.calculate_ratings(adjusted_ratings_hash, false)
+    # second_tier_adjusted_ratings_hash = ratings_hash.select do |player_id, rating_value|
+    #   player = Player.find { |p| p.id == player_id }
+    #   rating_change = rating_value - player.ratings.last.value
+    #   should_be_adjusted_up = rating_change >= 75
+    #   # should_be_adjusted_down = rating_change <= -75
+    #   # should_be_adjusted_up || should_be_adjusted_down
+    #   should_be_adjusted_up
+    # end
+
+    if first_tier_adjusted_ratings_hash.keys.length > 0 && first_pass
+      self.calculate_ratings(first_tier_adjusted_ratings_hash, false)
+      # elsif second_tier_adjusted_ratings_hash.keys.length > 0 && first_pass
+      #   second_tier_adjusted_ratings_hash.each do |player|
+
+      #     player_wins_and_losses_this_session = session.matches.select { |match| match.players.include?(player) }.map { |match| match.winner_id == player_id ? "win" : "loss" }
+
+      #     if player_wins_and_losses_this_session.uniq.size == 1
+      #       # If a player has either, all wins, or all losses, the Adjusted Rating is derived by taking the median implied rating for all of the player’s games. The implied rating is calculated using each of the opponents’ Pre-Tournament Ratings, and the Rating Chart above.
+
+      #     else
+      #       # If the player has wins and losses, the Adjusted Rating is derived by taking the average of the player’s Pre-Tournament Rating, and the average of the player’s best win and worst loss.
+
+      #     end
+      #     # In both cases, the player’s Adjusted Rating will never be lower than the player’s Pre-Tournament Rating. In the event that the PASS2 adjusted rating results in a lower rating than the player's Pre-Tournament Rating, the adjustment will then revert to the PASS1 adjusted rating, which is derived solely on the basis on net ratings point gain plus the player's pre-tournament rating.
+      #   end
     else
       ratings_hash.each do |player_id, rating_value|
-        new_rating = Rating.create(value: rating_value, session_id: self.id, adjustment: adjustment_hash[player_id] ? adjustment_hash[player_id] : 0)
+        new_rating = Rating.create(value: rating_value, session_id: self.id, adjustment: adjustment_hash[player_id] ? adjustment_hash[player_id] : nil)
         player = Player.find { |p| p.id == player_id }
         player.ratings.push(new_rating)
       end
     end
   end
 
-  def log_ratings
-    self.group.players.sort { |a, b| a.ratings.last.value <=> b.ratings.last.value }.each do |player|
-      puts("#{player.name}: #{player.ratings.last.value} #{player.ratings.last.adjustment && player.ratings.last.adjustment > 0 ? "(adjusted: " + player.ratings.last.adjustment.to_s + ")" : nil}")
+  def log_ratings()
+    self.ratings.sort { |a, b| a.value <=> b.value }.each do |rating|
+      player = Player.find { |p| p.id == rating.player_id }
+      puts("#{player.name}: #{rating.value} #{rating.adjustment ? "(adjusted: " + rating.adjustment.to_s + ")" : nil}")
     end
   end
 end
