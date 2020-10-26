@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_10_24_175750) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
+    t.integer "day_of_week"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

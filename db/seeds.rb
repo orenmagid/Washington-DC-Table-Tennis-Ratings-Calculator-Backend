@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-tuesday_group = Group.create(name: "Tuesday Group")
-thursday_group = Group.create(name: "Thursday Group")
-sunday_group = Group.create(name: "Sunday Group")
+tuesday_group = Group.create(name: "Tuesday Group", day_of_week: 2)
+thursday_group = Group.create(name: "Thursday Group", day_of_week: 4)
+sunday_group = Group.create(name: "Sunday Group", day_of_week: 0)
 
 session_one = Session.create(date: Time.new(2020, 10, 13, 19, 00, 00))
 session_two = Session.create(date: Time.new(2020, 10, 20, 19, 00, 00))
