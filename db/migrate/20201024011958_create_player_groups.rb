@@ -3,7 +3,6 @@ class CreatePlayerGroups < ActiveRecord::Migration[6.0]
     create_table :player_groups do |t|
       t.integer :player_id
       t.integer :group_id
-
       t.timestamps
     end
   end
