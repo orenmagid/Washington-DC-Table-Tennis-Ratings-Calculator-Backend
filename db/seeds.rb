@@ -157,8 +157,8 @@ club_ratings = [
   ["JD Cavaleri", 776],
 ]
 
-club_ratings.each do |player|
-  Player.create_with_rating_and_group(name: player[0], rating: player[1])
+club_ratings.each_with_index do |player, i|
+  Player.create_with_rating_and_group(name: player[0], rating: player[1], username: "wdctt_user_#{i}", password: "wdctt_user_#{player[1]}")
 end
 
 # Session One Matches
