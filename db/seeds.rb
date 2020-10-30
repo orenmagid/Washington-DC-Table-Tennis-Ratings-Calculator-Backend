@@ -49,25 +49,26 @@ emin = Player.create_with_rating_and_group(name: "Emin Dinlersoz", email: "edinl
 wei = Player.create_with_rating_and_group(name: "Wei Zhang", email: "helloshallwetalk820@gmail.com", rating: 2087, group_id: thursday_group.id, admin: true, username: "wei", password: "weipw1234")
 
 # Session One Matches
-oren_vs_zack_match = Match.create(session_id: session_one.id)
-oren_vs_zack_match.players.push(oren, zack)
-oren_vs_zack_match.winner_id = oren.id
-oren_vs_zack_match.save
+# oren_vs_zack_match = Match.create(session_id: session_one.id)
+# oren_vs_zack_match.players.push(oren, zack)
+# oren_vs_zack_match.winner_id = oren.id
+# oren_vs_zack_match.save
 
-oren_vs_zack_match = Match.create(session_id: session_one.id)
-oren_vs_zack_match.players.push(oren, zack)
-oren_vs_zack_match.winner_id = oren.id
-oren_vs_zack_match.save
+Match.create_match(oren.id, zack.id, session_one.id)
 
-oren_vs_wondu_match = Match.create(session_id: session_one.id)
-oren_vs_wondu_match.players.push(oren, wondu)
-oren_vs_wondu_match.winner_id = oren.id
-oren_vs_wondu_match.save
+# oren_vs_wondu_match = Match.create(session_id: session_one.id)
+# oren_vs_wondu_match.players.push(oren, wondu)
+# oren_vs_wondu_match.winner_id = oren.id
+# oren_vs_wondu_match.save
 
-oren_vs_wondu_match = Match.create(session_id: session_one.id)
-oren_vs_wondu_match.players.push(oren, wondu)
-oren_vs_wondu_match.winner_id = wondu.id
-oren_vs_wondu_match.save
+Match.create_match(oren.id, wondu.id, session_one.id)
+
+# oren_vs_wondu_match = Match.create(session_id: session_one.id)
+# oren_vs_wondu_match.players.push(oren, wondu)
+# oren_vs_wondu_match.winner_id = wondu.id
+# oren_vs_wondu_match.save
+
+Match.create_match(wondu.id, oren.id, session_one.id)
 
 puts("\n" * 6)
 puts("********************************** Session One: #{session_one.date.strftime("%d/%m/%Y, %I:%M %p")} **********************************")
@@ -81,80 +82,110 @@ puts("\n" * 3)
 
 # Session Two Matches
 
-oren_vs_john_match = Match.create(session_id: session_two.id)
-oren_vs_john_match.players.push(oren, john)
-oren_vs_john_match.winner_id = oren.id
-oren_vs_john_match.save
+# oren_vs_john_match = Match.create(session_id: session_two.id)
+# oren_vs_john_match.players.push(oren, john)
+# oren_vs_john_match.winner_id = oren.id
+# oren_vs_john_match.save
 
-oren_vs_ben_match = Match.create(session_id: session_two.id)
-oren_vs_ben_match.players.push(oren, ben)
-oren_vs_ben_match.winner_id = oren.id
-oren_vs_ben_match.save
+Match.create_match(oren.id, john.id, session_two.id)
 
-oren_vs_ted_match = Match.create(session_id: session_two.id)
-oren_vs_ted_match.players.push(oren, ted)
-oren_vs_ted_match.winner_id = oren.id
-oren_vs_ted_match.save
+# oren_vs_ben_match = Match.create(session_id: session_two.id)
+# oren_vs_ben_match.players.push(oren, ben)
+# oren_vs_ben_match.winner_id = oren.id
+# oren_vs_ben_match.save
 
-oren_vs_wondu_match = Match.create(session_id: session_two.id)
-oren_vs_wondu_match.players.push(oren, wondu)
-oren_vs_wondu_match.winner_id = wondu.id
-oren_vs_wondu_match.save
+Match.create_match(oren.id, ben.id, session_two.id)
 
-oren_vs_abhi_match = Match.create(session_id: session_two.id)
-oren_vs_abhi_match.players.push(oren, abhi)
-oren_vs_abhi_match.winner_id = oren.id
-oren_vs_abhi_match.save
+# oren_vs_ted_match = Match.create(session_id: session_two.id)
+# oren_vs_ted_match.players.push(oren, ted)
+# oren_vs_ted_match.winner_id = oren.id
+# oren_vs_ted_match.save
 
-john_vs_ben_match = Match.create(session_id: session_two.id)
-john_vs_ben_match.players.push(john, ben)
-john_vs_ben_match.winner_id = ben.id
-john_vs_ben_match.save
+Match.create_match(oren.id, ted.id, session_two.id)
 
-john_vs_ted_match = Match.create(session_id: session_two.id)
-john_vs_ted_match.players.push(john, ted)
-john_vs_ted_match.winner_id = john.id
-john_vs_ted_match.save
+# oren_vs_wondu_match = Match.create(session_id: session_two.id)
+# oren_vs_wondu_match.players.push(oren, wondu)
+# oren_vs_wondu_match.winner_id = wondu.id
+# oren_vs_wondu_match.save
 
-john_vs_wondu_match = Match.create(session_id: session_two.id)
-john_vs_wondu_match.players.push(john, wondu)
-john_vs_wondu_match.winner_id = wondu.id
-john_vs_wondu_match.save
+Match.create_match(wondu.id, oren.id, session_two.id)
 
-john_vs_abhi_match = Match.create(session_id: session_two.id)
-john_vs_abhi_match.players.push(john, abhi)
-john_vs_abhi_match.winner_id = abhi.id
-john_vs_abhi_match.save
+# oren_vs_abhi_match = Match.create(session_id: session_two.id)
+# oren_vs_abhi_match.players.push(oren, abhi)
+# oren_vs_abhi_match.winner_id = oren.id
+# oren_vs_abhi_match.save
 
-ben_vs_ted_match = Match.create(session_id: session_two.id)
-ben_vs_ted_match.players.push(ben, ted)
-ben_vs_ted_match.winner_id = ben.id
-ben_vs_ted_match.save
+Match.create_match(oren.id, abhi.id, session_two.id)
 
-ben_vs_wondu_match = Match.create(session_id: session_two.id)
-ben_vs_wondu_match.players.push(ben, wondu)
-ben_vs_wondu_match.winner_id = wondu.id
-ben_vs_wondu_match.save
+# john_vs_ben_match = Match.create(session_id: session_two.id)
+# john_vs_ben_match.players.push(john, ben)
+# john_vs_ben_match.winner_id = ben.id
+# john_vs_ben_match.save
 
-ben_vs_abhi_match = Match.create(session_id: session_two.id)
-ben_vs_abhi_match.players.push(ben, abhi)
-ben_vs_abhi_match.winner_id = abhi.id
-ben_vs_abhi_match.save
+Match.create_match(ben.id, john.id, session_two.id)
 
-ted_vs_wondu_match = Match.create(session_id: session_two.id)
-ted_vs_wondu_match.players.push(ted, wondu)
-ted_vs_wondu_match.winner_id = wondu.id
-ted_vs_wondu_match.save
+# john_vs_ted_match = Match.create(session_id: session_two.id)
+# john_vs_ted_match.players.push(john, ted)
+# john_vs_ted_match.winner_id = john.id
+# john_vs_ted_match.save
 
-ted_vs_abhi_match = Match.create(session_id: session_two.id)
-ted_vs_abhi_match.players.push(ted, abhi)
-ted_vs_abhi_match.winner_id = abhi.id
-ted_vs_abhi_match.save
+Match.create_match(john.id, ted.id, session_two.id)
 
-wondu_vs_abhi_match = Match.create(session_id: session_two.id)
-wondu_vs_abhi_match.players.push(wondu, abhi)
-wondu_vs_abhi_match.winner_id = abhi.id
-wondu_vs_abhi_match.save
+# john_vs_wondu_match = Match.create(session_id: session_two.id)
+# john_vs_wondu_match.players.push(john, wondu)
+# john_vs_wondu_match.winner_id = wondu.id
+# john_vs_wondu_match.save
+
+Match.create_match(wondu.id, john.id, session_two.id)
+
+# john_vs_abhi_match = Match.create(session_id: session_two.id)
+# john_vs_abhi_match.players.push(john, abhi)
+# john_vs_abhi_match.winner_id = abhi.id
+# john_vs_abhi_match.save
+
+Match.create_match(abhi.id, john.id, session_two.id)
+
+# ben_vs_ted_match = Match.create(session_id: session_two.id)
+# ben_vs_ted_match.players.push(ben, ted)
+# ben_vs_ted_match.winner_id = ben.id
+# ben_vs_ted_match.save
+
+Match.create_match(ben.id, ted.id, session_two.id)
+
+# ben_vs_wondu_match = Match.create(session_id: session_two.id)
+# ben_vs_wondu_match.players.push(ben, wondu)
+# ben_vs_wondu_match.winner_id = wondu.id
+# ben_vs_wondu_match.save
+
+Match.create_match(wondu.id, ben.id, session_two.id)
+
+# ben_vs_abhi_match = Match.create(session_id: session_two.id)
+# ben_vs_abhi_match.players.push(ben, abhi)
+# ben_vs_abhi_match.winner_id = abhi.id
+# ben_vs_abhi_match.save
+
+Match.create_match(abhi.id, ben.id, session_two.id)
+
+# ted_vs_wondu_match = Match.create(session_id: session_two.id)
+# ted_vs_wondu_match.players.push(ted, wondu)
+# ted_vs_wondu_match.winner_id = wondu.id
+# ted_vs_wondu_match.save
+
+Match.create_match(wondu.id, ted.id, session_two.id)
+
+# ted_vs_abhi_match = Match.create(session_id: session_two.id)
+# ted_vs_abhi_match.players.push(ted, abhi)
+# ted_vs_abhi_match.winner_id = abhi.id
+# ted_vs_abhi_match.save
+
+Match.create_match(abhi.id, ted.id, session_two.id)
+
+# wondu_vs_abhi_match = Match.create(session_id: session_two.id)
+# wondu_vs_abhi_match.players.push(wondu, abhi)
+# wondu_vs_abhi_match.winner_id = abhi.id
+# wondu_vs_abhi_match.save
+
+Match.create_match(abhi.id, wondu.id, session_two.id)
 
 puts("********************************** Session Two: #{session_two.date.strftime("%m/%d/%Y, %I:%M %p")} **********************************")
 puts("***************** Starting Ratings *****************")
@@ -165,36 +196,42 @@ puts("***************** Ending Ratings *****************")
 session_two.log_ratings
 puts("\n" * 6)
 
-oren_vs_john_match = Match.create(session_id: session_three.id)
-oren_vs_john_match.players.push(oren, john)
-oren_vs_john_match.winner_id = oren.id
-oren_vs_john_match.save
+# oren_vs_john_match = Match.create(session_id: session_three.id)
+# oren_vs_john_match.players.push(oren, john)
+# oren_vs_john_match.winner_id = oren.id
+# oren_vs_john_match.save
 
-oren_vs_wondu_match = Match.create(session_id: session_three.id)
-oren_vs_wondu_match.players.push(oren, wondu)
-oren_vs_wondu_match.winner_id = oren.id
-oren_vs_wondu_match.save
+Match.create_match(oren.id, john.id, session_three.id)
 
-oren_vs_abhi_match = Match.create(session_id: session_three.id)
-oren_vs_abhi_match.players.push(oren, abhi)
-oren_vs_abhi_match.winner_id = oren.id
-oren_vs_abhi_match.save
+# oren_vs_wondu_match = Match.create(session_id: session_three.id)
+# oren_vs_wondu_match.players.push(oren, wondu)
+# oren_vs_wondu_match.winner_id = oren.id
+# oren_vs_wondu_match.save
 
-oren_vs_jeremie_match = Match.create(session_id: session_three.id)
-oren_vs_jeremie_match.players.push(oren, jeremie)
-oren_vs_jeremie_match.winner_id = oren.id
-oren_vs_jeremie_match.save
+Match.create_match(oren.id, wondu.id, session_three.id)
 
-oren_vs_zack_match = Match.create(session_id: session_three.id)
-oren_vs_zack_match.players.push(oren, zack)
-oren_vs_zack_match.winner_id = oren.id
-oren_vs_zack_match.save
+# oren_vs_abhi_match = Match.create(session_id: session_three.id)
+# oren_vs_abhi_match.players.push(oren, abhi)
+# oren_vs_abhi_match.winner_id = oren.id
+# oren_vs_abhi_match.save
 
-# puts("********************************** Session Three: #{session_three.date.strftime("%m/%d/%Y, %I:%M %p")} **********************************")
-# puts("***************** Starting Ratings *****************")
-# tuesday_group.log_ratings
-# session_three.calculate_ratings
-# puts("\n" * 3)
-# puts("***************** Ending Ratings *****************")
-# session_three.log_ratings
-# puts("\n" * 6)
+Match.create_match(oren.id, abhi.id, session_three.id)
+
+# oren_vs_jeremie_match = Match.create(session_id: session_three.id)
+# oren_vs_jeremie_match.players.push(oren, jeremie)
+# oren_vs_jeremie_match.winner_id = oren.id
+# oren_vs_jeremie_match.save
+
+# oren_vs_zack_match = Match.create(session_id: session_three.id)
+# oren_vs_zack_match.players.push(oren, zack)
+# oren_vs_zack_match.winner_id = oren.id
+# oren_vs_zack_match.save
+
+puts("********************************** Session Three: #{session_three.date.strftime("%m/%d/%Y, %I:%M %p")} **********************************")
+puts("***************** Starting Ratings *****************")
+tuesday_group.log_ratings
+session_three.calculate_ratings
+puts("\n" * 3)
+puts("***************** Ending Ratings *****************")
+session_three.log_ratings
+puts("\n" * 6)
