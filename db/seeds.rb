@@ -168,6 +168,7 @@ end
 # oren_vs_zack_match.save
 
 Match.create_match(oren.id, zack.id, session_one.id)
+Match.create_match(oren.id, zack.id, session_one.id)
 
 # oren_vs_wondu_match = Match.create(session_id: session_one.id)
 # oren_vs_wondu_match.players.push(oren, wondu)
