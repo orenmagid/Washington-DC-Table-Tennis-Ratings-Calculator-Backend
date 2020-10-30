@@ -353,3 +353,8 @@ puts("\n" * 6)
 # puts("***************** Ending Ratings *****************")
 # session_three.log_ratings
 # puts("\n" * 6)
+
+armen = Player.find_by(name: "Armen Kankanian")
+armen.email = "armen11@verizon.net"
+sunday_group = Group.find_by(name: "Sunday Group")
+armen.groups.push(sunday_group)
