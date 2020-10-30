@@ -358,3 +358,4 @@ armen = Player.find_by(name: "Armen Kankanian")
 armen.email = "armen11@verizon.net"
 sunday_group = Group.find_by(name: "Sunday Group")
 armen.groups.push(sunday_group)
+armen.save
