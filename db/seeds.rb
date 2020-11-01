@@ -16,9 +16,9 @@ session_three = Session.create(date: Time.new(2020, 10, 27, 19, 00, 00))
 
 tuesday_group.sessions.push(session_one, session_two, session_three)
 
-khaleel = Player.create_with_rating_and_group(name: "Khaleel Asgarali", email: "asgarali.wdctt@gmail.com", rating: 2500, group_id: tuesday_group.id, admin: true, username: "khaleel", password: "khaleelpw1234")
-sunday_group.players.push(khaleel)
-thursday_group.players.push(khaleel)
+khaleel = Player.create_with_rating_and_group(name: "Khaleel Asgarali", email: "asgarali.wdctt@gmail.com", rating: 2500, group_id: nil, admin: true, username: "khaleel", password: "khaleelpw1234")
+# sunday_group.players.push(khaleel)
+# thursday_group.players.push(khaleel)
 
 oren = Player.create_with_rating_and_group(name: "Oren Magid", email: "oren.michael.magid@gmail.com", rating: 1098, group_id: tuesday_group.id, admin: true, username: "oren", password: "orenpw1234")
 sunday_group.players.push(oren)
@@ -39,6 +39,8 @@ mike = Player.create_with_rating_and_group(name: "Mike Cohen", email: "mcohen@na
 aaron_z = Player.create_with_rating_and_group(name: "Aaron Zhang", email: "zhangqy1@yahoo.com", rating: 1580, group_id: sunday_group.id, admin: true, username: "aaron", password: "aaronpw1234")
 chan = Player.create_with_rating_and_group(name: "Chandler Williamson", email: "chandler.williamson23@gmail.com", rating: 1600, group_id: sunday_group.id, admin: true, username: "chand", password: "chandpw1234")
 aaron_t = Player.create_with_rating_and_group(name: "Aaron Thaul", email: "aaron.thaul@gmail.com", rating: 1613, group_id: sunday_group.id, admin: true, username: "arron_t", password: "arron_tpw1234")
+emily = Player.create_with_rating_and_group(name: "Emily Wade", email: "wadesports@verizon.net", rating: 1300, group_id: sunday_group.id, admin: true, username: "emily", password: "emilypw1234")
+darryl = Player.create_with_rating_and_group(name: "Darryl Hill", email: "", rating: 1800, group_id: sunday_group.id, admin: true, username: "darryl", password: "darrylpw1234")
 
 franklin = Player.create_with_rating_and_group(name: "Franklin Cao", email: "frankcao121@yahoo.com", rating: 1570, group_id: thursday_group.id, admin: true, username: "franklinn", password: "franklinnpw1234")
 nick = Player.create_with_rating_and_group(name: "Nick Enz", email: "enz.nick@gmail.com", rating: 1767, group_id: thursday_group.id, admin: true, username: "nick", password: "nickpw1234")
