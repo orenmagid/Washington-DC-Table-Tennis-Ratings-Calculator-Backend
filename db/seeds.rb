@@ -361,3 +361,11 @@ armen.email = "armen11@verizon.net"
 sunday_group = Group.find_by(name: "Sunday Group")
 armen.groups.push(sunday_group)
 armen.save
+
+jc = Player.find_by(name: "JC Matos")
+jc.email = "jancarlo.matos@gmail.com"
+sunday_group = Group.find_by(name: "Sunday Group")
+jc.groups.push(sunday_group)
+jc.save
+
+ Player.create_with_rating_and_group(name: "Chris Evans", rating: 1500, username: "chris_evans", password: "chris_evanspw1234")
