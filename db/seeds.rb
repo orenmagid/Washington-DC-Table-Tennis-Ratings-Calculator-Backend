@@ -12,9 +12,9 @@ sunday_group = Group.create(name: "Sunday Group", day_of_week: 0)
 
 session_one = Session.create(date: Time.new(2020, 10, 13, 19, 00, 00))
 session_two = Session.create(date: Time.new(2020, 10, 20, 19, 00, 00))
-session_three = Session.create(date: Time.new(2020, 10, 27, 19, 00, 00))
+# session_three = Session.create(date: Time.new(2020, 10, 27, 19, 00, 00))
 
-tuesday_group.sessions.push(session_one, session_two, session_three)
+tuesday_group.sessions.push(session_one, session_two)
 
 khaleel = Player.create_with_rating_and_group(name: "Khaleel Asgarali", email: "asgarali.wdctt@gmail.com", rating: 2500, group_id: nil, admin: true, username: "khaleel", password: "khaleelpw1234")
 # sunday_group.players.push(khaleel)
