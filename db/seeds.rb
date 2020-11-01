@@ -369,3 +369,5 @@ jc.groups.push(sunday_group)
 jc.save
 
  Player.create_with_rating_and_group(name: "Chris Evans", rating: 1500, username: "chris_evans", password: "chris_evanspw1234", group_id: 1)
+
+  Player.create_with_rating_and_group(name: "Fon", rating: 1350, username: "fon", password: "fonpw1234", group_id: 1)
