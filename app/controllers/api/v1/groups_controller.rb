@@ -1,7 +1,9 @@
 class Api::V1::GroupsController < ApplicationController
   def index
     @groups = Group.all
-    render json: @groups, include: ["players", "players.groups", "players.ratings"]
+    render json: @groups, include: ["players", "players.groups", "players.ratings", "players.ratings.session"]
+   
+  end
   end
 
   def update
