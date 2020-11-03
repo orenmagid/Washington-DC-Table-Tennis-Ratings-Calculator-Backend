@@ -4,7 +4,6 @@ class Api::V1::GroupsController < ApplicationController
     render json: @groups, include: ["players", "players.groups", "players.ratings", "players.ratings.session"]
    
   end
-  end
 
   def update
     group_id = params[:id]
