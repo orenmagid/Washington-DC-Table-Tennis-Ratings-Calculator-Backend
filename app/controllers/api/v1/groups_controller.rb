@@ -1,8 +1,9 @@
 class Api::V1::GroupsController < ApplicationController
+  skip_before_action :authorized, only: [:index]
+
   def index
     @groups = Group.all
     render json: @groups, include: ["players", "players.groups", "players.ratings", "players.ratings.session"]
-   
   end
 
   def update
@@ -19,9 +20,9 @@ class Api::V1::GroupsController < ApplicationController
     end
     @groups = Group.all
     @players = Player.all
-   
+
     if @group.save
-        render json: @group, status: :accepted
+      render json: @group, status: :accepted
     end
   end
 end

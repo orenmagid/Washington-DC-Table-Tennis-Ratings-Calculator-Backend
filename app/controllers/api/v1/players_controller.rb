@@ -1,5 +1,5 @@
 class Api::V1::PlayersController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:index, :create]
 
   def index
     @players = Player.all

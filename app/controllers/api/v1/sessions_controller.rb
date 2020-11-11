@@ -1,4 +1,5 @@
 class Api::V1::SessionsController < ApplicationController
+  skip_before_action :authorized, only: [:index]
   def index
     @sessions = Session.all
     render json: @sessions, include: ["group", "matches", "matches.players", "matches.players.ratings"]
