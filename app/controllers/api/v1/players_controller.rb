@@ -3,7 +3,7 @@ class Api::V1::PlayersController < ApplicationController
 
   def index
     @players = Player.all
-    render json: @players, include: ["groups", "matches", "ratings", "ratings.session"]
+    render json: @players, include: ["matches", "ratings", "ratings.session"]
   end
 
   def create

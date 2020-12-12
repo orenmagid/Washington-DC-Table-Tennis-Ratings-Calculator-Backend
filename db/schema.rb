@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_24_175750) do
+ActiveRecord::Schema.define(version: 2020_12_12_212254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.integer "day_of_week"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "matches", force: :cascade do |t|
     t.integer "session_id"
@@ -60,6 +53,15 @@ ActiveRecord::Schema.define(version: 2020_10_24_175750) do
     t.integer "session_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recurring_sessions", force: :cascade do |t|
+    t.string "name"
+    t.integer "day_of_week"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "low_rating_limit"
+    t.integer "high_rating_limit"
   end
 
   create_table "sessions", force: :cascade do |t|
