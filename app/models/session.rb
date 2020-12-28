@@ -1,5 +1,5 @@
 class Session < ApplicationRecord
-  belongs_to :group, optional: true
+  belongs_to :recurring_session, optional: true
   has_many :matches
   has_many :ratings
 
