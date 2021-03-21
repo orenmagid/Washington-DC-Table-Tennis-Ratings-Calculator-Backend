@@ -4,6 +4,7 @@ class Player < ApplicationRecord
   has_many :player_matches
   has_many :matches, through: :player_matches
   has_many :ratings
+  has_many :player_intents
 
   has_secure_password
   validates :username, uniqueness: { case_sensitive: false }

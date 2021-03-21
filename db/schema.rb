@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_222048) do
+ActiveRecord::Schema.define(version: 2021_01_03_154316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 2020_12_28_222048) do
     t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "player_intents", force: :cascade do |t|
+    t.integer "player_id"
+    t.integer "recurring_session_id"
+    t.integer "signup_form_id"
   end
 
   create_table "player_matches", force: :cascade do |t|
@@ -63,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_12_28_222048) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "low_rating_limit"
     t.integer "high_rating_limit"
+    t.integer "signup_form_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -70,6 +77,24 @@ ActiveRecord::Schema.define(version: 2020_12_28_222048) do
     t.integer "recurring_session_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "signup_form_recurring_sessions", force: :cascade do |t|
+    t.integer "recurring_session_id"
+    t.integer "signup_form_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "signup_forms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active"
+    t.integer "stage_id"
+  end
+
+  create_table "stages", force: :cascade do |t|
+    t.string "description"
   end
 
 end
