@@ -3,7 +3,7 @@ class Api::V1::AuthController < ApplicationController
 
   def create
     @player = Player.find_by(username: player_login_params[:username])
-    #User#authenticate comes from BCrypt
+    #Player#authenticate comes from BCrypt
     if @player && @player.authenticate(player_login_params[:password])
       # encode token comes from ApplicationController
       token = encode_token({ player_id: @player.id })
@@ -16,7 +16,7 @@ class Api::V1::AuthController < ApplicationController
   private
 
   def player_login_params
-    # params { player: {username: 'Chandler Bing', password: 'hi' } }
+    # params { player: {username: 'oren', password: 'hi' } }
     params.require(:player).permit(:username, :password)
   end
 end

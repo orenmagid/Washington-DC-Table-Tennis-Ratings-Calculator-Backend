@@ -2,7 +2,6 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def encode_token(payload)
-    # don't forget to hide your secret in an environment variable
     JWT.encode(payload, ENV["secret_key"])
   end
 
@@ -23,10 +22,9 @@ class ApplicationController < ActionController::API
 
   def current_user
     if decoded_token
-      # decoded_token=> [{"user_id"=>2}, {"alg"=>"HS256"}]
+      # decoded_token=> [{"player_id"=>2}, {"alg"=>"HS256"}]
       # or nil if we can't decode the token
       player_id = decoded_token[0]["player_id"]
-      puts("decoded_token[0]", decoded_token[0])
       @player = Player.find_by(id: player_id)
     end
   end
