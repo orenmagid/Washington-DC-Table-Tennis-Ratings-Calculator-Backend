@@ -1,54 +1,54 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
 
-tuesday_group = Group.create(name: "Tuesday Group", day_of_week: 2)
+wednesday_group = Group.create(name: "Wednesday Group", day_of_week: 3)
 thursday_group = Group.create(name: "Thursday Group", day_of_week: 4)
 sunday_group = Group.create(name: "Sunday Group", day_of_week: 0)
 
 session_one = Session.create(date: Time.new(2020, 10, 13, 19, 00, 00))
 session_two = Session.create(date: Time.new(2020, 10, 20, 19, 00, 00))
-# session_three = Session.create(date: Time.new(2020, 10, 27, 19, 00, 00))
+session_three = Session.create(date: Time.new(2020, 10, 27, 19, 00, 00))
 
-tuesday_group.sessions.push(session_one, session_two)
+wednesday_group.sessions.push(session_one, session_two)
 
-khaleel = Player.create_with_rating_and_group(name: "Khaleel Asgarali", email: "asgarali.wdctt@gmail.com", rating: 2500, group_id: nil, admin: true, username: "khaleel", password: "khaleelpw1234")
+khaleel = Player.create_with_rating_and_group(name: "Khaleel Asgarali", email: "asgarali.wdctt@gmail.com", rating: 2500, group_id: nil, admin: false, username: "khaleel", password: "khaleelpw1234", hide: true)
 # sunday_group.players.push(khaleel)
 # thursday_group.players.push(khaleel)
 
-oren = Player.create_with_rating_and_group(name: "Oren Magid", email: "oren.michael.magid@gmail.com", rating: 1098, group_id: tuesday_group.id, admin: true, username: "oren", password: "orenpw1234")
+oren = Player.create_with_rating_and_group(name: "Oren Magid", email: "oren.michael.magid@gmail.com", rating: 1098, group_id: wednesday_group.id, admin: true, username: "oren", password: "orenpw1234")
 sunday_group.players.push(oren)
-john = Player.create_with_rating_and_group(name: "John Harrison", email: "harrison.john@plsystems.net", rating: 1128, group_id: tuesday_group.id, admin: true, username: "john", password: "johnpw1234")
-ben = Player.create_with_rating_and_group(name: "Ben Nix", email: "marlanix@hotmail.com", rating: 800, group_id: tuesday_group.id, admin: true, username: "ben", password: "benpw1234")
-moses = Player.create_with_rating_and_group(name: "Moses Kitakule", email: "moseskitakule@gmail.com", rating: 902, group_id: tuesday_group.id, admin: true, username: "moses", password: "mosespw1234")
-ted = Player.create_with_rating_and_group(name: "Ted Udelson", email: "tedU@IntegrityComputing.com", rating: 1052, group_id: tuesday_group.id, admin: true, username: "ted", password: "tedpw1234")
-zack = Player.create_with_rating_and_group(name: "Zack Lessner", email: "lessnerzachary@gmail.com", rating: 1181, group_id: tuesday_group.id, admin: true, username: "zack", password: "zackpw1234")
-wondu = Player.create_with_rating_and_group(name: "Wondwosen Shiferaw", email: "wshiferaw82@gmail.com", rating: 1212, group_id: tuesday_group.id, admin: true, username: "wondu", password: "wondupw1234")
-jeremie = Player.create_with_rating_and_group(name: "Jeremie Auboux", email: "jeremie.aubou@gmail.com", rating: 1238, group_id: tuesday_group.id, admin: true, username: "jeremie", password: "jeremiepw1234")
-abhi = Player.create_with_rating_and_group(name: "Abhi Pabba", email: "abhipabba@yahoo.com", rating: 1428, group_id: tuesday_group.id, admin: true, username: "abhi", password: "abhipw1234")
+john = Player.create_with_rating_and_group(name: "John Harrison", email: "harrison.john@plsystems.net", rating: 1128, group_id: wednesday_group.id, admin: false, username: "john", password: "johnpw1234")
+ben = Player.create_with_rating_and_group(name: "Ben Nix", email: "marlanix@hotmail.com", rating: 800, group_id: wednesday_group.id, admin: false, username: "ben", password: "benpw1234")
+moses = Player.create_with_rating_and_group(name: "Moses Kitakule", email: "moseskitakule@gmail.com", rating: 902, group_id: wednesday_group.id, admin: false, username: "moses", password: "mosespw1234")
+ted = Player.create_with_rating_and_group(name: "Ted Udelson", email: "tedU@IntegrityComputing.com", rating: 1052, group_id: wednesday_group.id, admin: false, username: "ted", password: "tedpw1234")
+zack = Player.create_with_rating_and_group(name: "Zack Lessner", email: "lessnerzachary@gmail.com", rating: 1181, group_id: wednesday_group.id, admin: false, username: "zack", password: "zackpw1234")
+wondu = Player.create_with_rating_and_group(name: "Wondwosen Shiferaw", email: "wshiferaw82@gmail.com", rating: 1212, group_id: wednesday_group.id, admin: false, username: "wondu", password: "wondupw1234")
+jeremie = Player.create_with_rating_and_group(name: "Jeremie Auboux", email: "jeremie.aubou@gmail.com", rating: 1238, group_id: wednesday_group.id, admin: false, username: "jeremie", password: "jeremiepw1234")
+abhi = Player.create_with_rating_and_group(name: "Abhi Pabba", email: "abhipabba@yahoo.com", rating: 1428, group_id: wednesday_group.id, admin: false, username: "abhi", password: "abhipw1234")
 
-kodi = Player.create_with_rating_and_group(name: "Kodi Bhaskar Kottaidurai", email: "kodibhaskark@gmail.com", rating: 1272, group_id: sunday_group.id, admin: true, username: "kodi", password: "kodipw1234")
-michael = Player.create_with_rating_and_group(name: "Michael LaGiglia", email: "mal3rd@hotmail.com", rating: 1410, group_id: sunday_group.id, admin: true, username: "michael", password: "michaelpw1234")
-barry = Player.create_with_rating_and_group(name: "Barry Dancis", email: "dancishome@gmail.com", rating: 1398, group_id: sunday_group.id, admin: true, username: "barry", password: "barrypw1234")
-jason = Player.create_with_rating_and_group(name: "Jason Miranda", email: "jason.miranda102@gmail.com", rating: 1500, group_id: sunday_group.id, admin: true, username: "jason", password: "jasonpw1234")
-mike = Player.create_with_rating_and_group(name: "Mike Cohen", email: "mcohen@nas.edu", rating: 1578, group_id: sunday_group.id, admin: true, username: "mike", password: "mikepw1234")
-aaron_z = Player.create_with_rating_and_group(name: "Aaron Zhang", email: "zhangqy1@yahoo.com", rating: 1580, group_id: sunday_group.id, admin: true, username: "aaron", password: "aaronpw1234")
-chan = Player.create_with_rating_and_group(name: "Chandler Williamson", email: "chandler.williamson23@gmail.com", rating: 1600, group_id: sunday_group.id, admin: true, username: "chand", password: "chandpw1234")
-aaron_t = Player.create_with_rating_and_group(name: "Aaron Thaul", email: "aaron.thaul@gmail.com", rating: 1613, group_id: sunday_group.id, admin: true, username: "arron_t", password: "arron_tpw1234")
-emily = Player.create_with_rating_and_group(name: "Emily Wade", email: "wadesports@verizon.net", rating: 1300, group_id: sunday_group.id, admin: true, username: "emily", password: "emilypw1234")
-darryl = Player.create_with_rating_and_group(name: "Darryl Hill", email: "", rating: 1800, group_id: sunday_group.id, admin: true, username: "darryl", password: "darrylpw1234")
+kodi = Player.create_with_rating_and_group(name: "Kodi Bhaskar Kottaidurai", email: "kodibhaskark@gmail.com", rating: 1272, group_id: sunday_group.id, admin: false, username: "kodi", password: "kodipw1234")
+michael = Player.create_with_rating_and_group(name: "Michael LaGiglia", email: "mal3rd@hotmail.com", rating: 1410, group_id: sunday_group.id, admin: false, username: "michael", password: "michaelpw1234")
+barry = Player.create_with_rating_and_group(name: "Barry Dancis", email: "dancishome@gmail.com", rating: 1398, group_id: sunday_group.id, admin: false, username: "barry", password: "barrypw1234")
+jason = Player.create_with_rating_and_group(name: "Jason Miranda", email: "jason.miranda102@gmail.com", rating: 1500, group_id: sunday_group.id, admin: false, username: "jason", password: "jasonpw1234")
+mike = Player.create_with_rating_and_group(name: "Mike Cohen", email: "mcohen@nas.edu", rating: 1578, group_id: sunday_group.id, admin: false, username: "mike", password: "mikepw1234")
+aaron_z = Player.create_with_rating_and_group(name: "Aaron Zhang", email: "zhangqy1@yahoo.com", rating: 1580, group_id: sunday_group.id, admin: false, username: "aaron", password: "aaronpw1234")
+chan = Player.create_with_rating_and_group(name: "Chandler Williamson", email: "chandler.williamson23@gmail.com", rating: 1600, group_id: sunday_group.id, admin: false, username: "chand", password: "chandpw1234")
+aaron_t = Player.create_with_rating_and_group(name: "Aaron Thaul", email: "aaron.thaul@gmail.com", rating: 1613, group_id: sunday_group.id, admin: false, username: "arron_t", password: "arron_tpw1234")
+emily = Player.create_with_rating_and_group(name: "Emily Wade", email: "wadesports@verizon.net", rating: 1300, group_id: sunday_group.id, admin: false, username: "emily", password: "emilypw1234")
+darryl = Player.create_with_rating_and_group(name: "Darryl Hill", email: "", rating: 1800, group_id: sunday_group.id, admin: false, username: "darryl", password: "darrylpw1234")
 
-franklin = Player.create_with_rating_and_group(name: "Franklin Cao", email: "frankcao121@yahoo.com", rating: 1570, group_id: thursday_group.id, admin: true, username: "franklinn", password: "franklinnpw1234")
-nick = Player.create_with_rating_and_group(name: "Nick Enz", email: "enz.nick@gmail.com", rating: 1767, group_id: thursday_group.id, admin: true, username: "nick", password: "nickpw1234")
-marsay = Player.create_with_rating_and_group(name: "Marsay Bach", email: "bachi88@gmail.com", rating: 1763, group_id: thursday_group.id, admin: true, username: "marsay", password: "marsaypw1234")
-mike_c = Player.create_with_rating_and_group(name: "Mike Clarke", email: "maicel@aol.com", rating: 1800, group_id: thursday_group.id, admin: true, username: "mike_c", password: "mike_cpw1234")
-aman = Player.create_with_rating_and_group(name: "Aman Rai", email: "amanrai0496@gmail.com", rating: 1906, group_id: thursday_group.id, admin: true, username: "aman", password: "amanpw1234")
-emin = Player.create_with_rating_and_group(name: "Emin Dinlersoz", email: "edinlersoz@gmail.com", rating: 1917, group_id: thursday_group.id, admin: true, username: "emin", password: "eminpw1234")
-wei = Player.create_with_rating_and_group(name: "Wei Zhang", email: "helloshallwetalk820@gmail.com", rating: 1968, group_id: thursday_group.id, admin: true, username: "wei", password: "weipw1234")
+franklin = Player.create_with_rating_and_group(name: "Franklin Cao", email: "frankcao121@yahoo.com", rating: 1570, group_id: thursday_group.id, admin: false, username: "franklinn", password: "franklinnpw1234")
+nick = Player.create_with_rating_and_group(name: "Nick Enz", email: "enz.nick@gmail.com", rating: 1767, group_id: thursday_group.id, admin: false, username: "nick", password: "nickpw1234")
+marsay = Player.create_with_rating_and_group(name: "Marsay Bach", email: "bachi88@gmail.com", rating: 1763, group_id: thursday_group.id, admin: false, username: "marsay", password: "marsaypw1234")
+mike_c = Player.create_with_rating_and_group(name: "Mike Clarke", email: "maicel@aol.com", rating: 1800, group_id: thursday_group.id, admin: false, username: "mike_c", password: "mike_cpw1234")
+aman = Player.create_with_rating_and_group(name: "Aman Rai", email: "amanrai0496@gmail.com", rating: 1906, group_id: thursday_group.id, admin: false, username: "aman", password: "amanpw1234")
+emin = Player.create_with_rating_and_group(name: "Emin Dinlersoz", email: "edinlersoz@gmail.com", rating: 1917, group_id: thursday_group.id, admin: false, username: "emin", password: "eminpw1234")
+wei = Player.create_with_rating_and_group(name: "Wei Zhang", email: "helloshallwetalk820@gmail.com", rating: 1968, group_id: thursday_group.id, admin: false, username: "wei", password: "weipw1234")
 
 club_ratings = [
   ["Ray Xu", 2291],
@@ -163,199 +163,6 @@ club_ratings.each_with_index do |player, i|
   Player.create_with_rating_and_group(name: player[0], rating: player[1], username: "wdctt_user_#{i}", password: "wdctt_user_#{player[1]}")
 end
 
-# Session One Matches
-# oren_vs_zack_match = Match.create(session_id: session_one.id)
-# oren_vs_zack_match.players.push(oren, zack)
-# oren_vs_zack_match.winner_id = oren.id
-# oren_vs_zack_match.save
-
-Match.create_match(oren.id, zack.id, session_one.id)
-Match.create_match(oren.id, zack.id, session_one.id)
-
-# oren_vs_wondu_match = Match.create(session_id: session_one.id)
-# oren_vs_wondu_match.players.push(oren, wondu)
-# oren_vs_wondu_match.winner_id = oren.id
-# oren_vs_wondu_match.save
-
-Match.create_match(oren.id, wondu.id, session_one.id)
-
-# oren_vs_wondu_match = Match.create(session_id: session_one.id)
-# oren_vs_wondu_match.players.push(oren, wondu)
-# oren_vs_wondu_match.winner_id = wondu.id
-# oren_vs_wondu_match.save
-
-Match.create_match(wondu.id, oren.id, session_one.id)
-
-Match.create_match(wondu.id, zack.id, session_one.id)
-
-Match.create_match(wondu.id, zack.id, session_one.id)
-
-puts("\n" * 6)
-puts("********************************** Session One: #{session_one.date.strftime("%d/%m/%Y, %I:%M %p")} **********************************")
-puts("***************** Starting Ratings *****************")
-tuesday_group.log_ratings
-session_one.calculate_ratings
-puts("\n" * 3)
-puts("***************** Ending Ratings *****************")
-session_one.log_ratings
-puts("\n" * 3)
-
-# Session Two Matches
-
-# oren_vs_john_match = Match.create(session_id: session_two.id)
-# oren_vs_john_match.players.push(oren, john)
-# oren_vs_john_match.winner_id = oren.id
-# oren_vs_john_match.save
-
-Match.create_match(oren.id, john.id, session_two.id)
-
-# oren_vs_ben_match = Match.create(session_id: session_two.id)
-# oren_vs_ben_match.players.push(oren, ben)
-# oren_vs_ben_match.winner_id = oren.id
-# oren_vs_ben_match.save
-
-Match.create_match(oren.id, ben.id, session_two.id)
-
-# oren_vs_ted_match = Match.create(session_id: session_two.id)
-# oren_vs_ted_match.players.push(oren, ted)
-# oren_vs_ted_match.winner_id = oren.id
-# oren_vs_ted_match.save
-
-Match.create_match(oren.id, ted.id, session_two.id)
-
-# oren_vs_wondu_match = Match.create(session_id: session_two.id)
-# oren_vs_wondu_match.players.push(oren, wondu)
-# oren_vs_wondu_match.winner_id = wondu.id
-# oren_vs_wondu_match.save
-
-Match.create_match(wondu.id, oren.id, session_two.id)
-
-# oren_vs_abhi_match = Match.create(session_id: session_two.id)
-# oren_vs_abhi_match.players.push(oren, abhi)
-# oren_vs_abhi_match.winner_id = oren.id
-# oren_vs_abhi_match.save
-
-Match.create_match(oren.id, abhi.id, session_two.id)
-
-# john_vs_ben_match = Match.create(session_id: session_two.id)
-# john_vs_ben_match.players.push(john, ben)
-# john_vs_ben_match.winner_id = ben.id
-# john_vs_ben_match.save
-
-Match.create_match(ben.id, john.id, session_two.id)
-
-# john_vs_ted_match = Match.create(session_id: session_two.id)
-# john_vs_ted_match.players.push(john, ted)
-# john_vs_ted_match.winner_id = john.id
-# john_vs_ted_match.save
-
-Match.create_match(john.id, ted.id, session_two.id)
-
-# john_vs_wondu_match = Match.create(session_id: session_two.id)
-# john_vs_wondu_match.players.push(john, wondu)
-# john_vs_wondu_match.winner_id = wondu.id
-# john_vs_wondu_match.save
-
-Match.create_match(wondu.id, john.id, session_two.id)
-
-# john_vs_abhi_match = Match.create(session_id: session_two.id)
-# john_vs_abhi_match.players.push(john, abhi)
-# john_vs_abhi_match.winner_id = abhi.id
-# john_vs_abhi_match.save
-
-Match.create_match(abhi.id, john.id, session_two.id)
-
-# ben_vs_ted_match = Match.create(session_id: session_two.id)
-# ben_vs_ted_match.players.push(ben, ted)
-# ben_vs_ted_match.winner_id = ben.id
-# ben_vs_ted_match.save
-
-Match.create_match(ben.id, ted.id, session_two.id)
-
-# ben_vs_wondu_match = Match.create(session_id: session_two.id)
-# ben_vs_wondu_match.players.push(ben, wondu)
-# ben_vs_wondu_match.winner_id = wondu.id
-# ben_vs_wondu_match.save
-
-Match.create_match(wondu.id, ben.id, session_two.id)
-
-# ben_vs_abhi_match = Match.create(session_id: session_two.id)
-# ben_vs_abhi_match.players.push(ben, abhi)
-# ben_vs_abhi_match.winner_id = abhi.id
-# ben_vs_abhi_match.save
-
-Match.create_match(abhi.id, ben.id, session_two.id)
-
-# ted_vs_wondu_match = Match.create(session_id: session_two.id)
-# ted_vs_wondu_match.players.push(ted, wondu)
-# ted_vs_wondu_match.winner_id = wondu.id
-# ted_vs_wondu_match.save
-
-Match.create_match(wondu.id, ted.id, session_two.id)
-
-# ted_vs_abhi_match = Match.create(session_id: session_two.id)
-# ted_vs_abhi_match.players.push(ted, abhi)
-# ted_vs_abhi_match.winner_id = abhi.id
-# ted_vs_abhi_match.save
-
-Match.create_match(abhi.id, ted.id, session_two.id)
-
-# wondu_vs_abhi_match = Match.create(session_id: session_two.id)
-# wondu_vs_abhi_match.players.push(wondu, abhi)
-# wondu_vs_abhi_match.winner_id = abhi.id
-# wondu_vs_abhi_match.save
-
-Match.create_match(abhi.id, wondu.id, session_two.id)
-
-puts("********************************** Session Two: #{session_two.date.strftime("%m/%d/%Y, %I:%M %p")} **********************************")
-puts("***************** Starting Ratings *****************")
-tuesday_group.log_ratings
-session_two.calculate_ratings
-puts("\n" * 3)
-puts("***************** Ending Ratings *****************")
-session_two.log_ratings
-puts("\n" * 6)
-
-# oren_vs_john_match = Match.create(session_id: session_three.id)
-# oren_vs_john_match.players.push(oren, john)
-# oren_vs_john_match.winner_id = oren.id
-# oren_vs_john_match.save
-
-# Match.create_match(oren.id, john.id, session_three.id)
-
-# oren_vs_wondu_match = Match.create(session_id: session_three.id)
-# oren_vs_wondu_match.players.push(oren, wondu)
-# oren_vs_wondu_match.winner_id = oren.id
-# oren_vs_wondu_match.save
-
-# Match.create_match(oren.id, wondu.id, session_three.id)
-
-# oren_vs_abhi_match = Match.create(session_id: session_three.id)
-# oren_vs_abhi_match.players.push(oren, abhi)
-# oren_vs_abhi_match.winner_id = oren.id
-# oren_vs_abhi_match.save
-
-# Match.create_match(oren.id, ted.id, session_three.id)
-
-# oren_vs_jeremie_match = Match.create(session_id: session_three.id)
-# oren_vs_jeremie_match.players.push(oren, jeremie)
-# oren_vs_jeremie_match.winner_id = oren.id
-# oren_vs_jeremie_match.save
-
-# oren_vs_zack_match = Match.create(session_id: session_three.id)
-# oren_vs_zack_match.players.push(oren, zack)
-# oren_vs_zack_match.winner_id = oren.id
-# oren_vs_zack_match.save
-
-# puts("********************************** Session Three: #{session_three.date.strftime("%m/%d/%Y, %I:%M %p")} **********************************")
-# puts("***************** Starting Ratings *****************")
-# tuesday_group.log_ratings
-# session_three.calculate_ratings
-# puts("\n" * 3)
-# puts("***************** Ending Ratings *****************")
-# session_three.log_ratings
-# puts("\n" * 6)
-
 armen = Player.find_by(name: "Armen Kankanian")
 armen.email = "armen11@verizon.net"
 sunday_group = Group.find_by(name: "Sunday Group")
@@ -368,6 +175,39 @@ sunday_group = Group.find_by(name: "Tuesday Group")
 jc.groups.push(sunday_group)
 jc.save
 
- Player.create_with_rating_and_group(name: "Chris Evans", rating: 1500, username: "chris_evans", password: "chris_evanspw1234", group_id: 1)
+Player.create_with_rating_and_group(name: "Chris Evans", rating: 1500, username: "chris_evans", password: "chris_evanspw1234", group_id: 1)
 
-  Player.create_with_rating_and_group(name: "Fon", rating: 1350, username: "fon", password: "fonpw1234", group_id: 1)
+Player.create_with_rating_and_group(name: "Fon", rating: 1350, username: "fon", password: "fonpw1234", group_id: 1)
+
+# Necessary for the refactoring
+Stage.create(description: "Indicate the days you would like to play. You may choose a maximum of two days for which your rating makes you elligible.")
+Stage.create(description: "Groups are being formed based on responses to this form. You will be notified of groups soon.")
+
+most_recent_signup_form = SignupForm.last
+
+sunday_above_1400_session = RecurringSession.find(3)
+tuesday_below_1500_session = RecurringSession.find(1)
+wednesday_1200_through_1600_session = RecurringSession.find(4)
+thursday_above_1500_session = RecurringSession.find(2)
+saturday_below_1300_session = RecurringSession.find(5)
+
+sunday_players = Player.joins(:ratings).where("ratings.value >= ?", 1400)
+tuesday_players = Player.joins(:ratings).where("ratings.value <= ?", 1500)
+wednesday_players = Player.joins(:ratings).where("ratings.value >= ?", 1200).where("ratings.value <= ?", 1600)
+thursday_players = Player.joins(:ratings).where("ratings.value >= ?", 1500)
+saturday_players = Player.joins(:ratings).where("ratings.value <= ?", 1300)
+
+# sunday player_intents
+sunday_players[0..7].each { |player| PlayerIntent.create(signup_form_id: most_recent_signup_form.id, player_id: player.id, recurring_session_id: sunday_above_1400_session.id) }
+
+# tuesday player_intents
+tuesday_players[10..14].each { |player| PlayerIntent.create(signup_form_id: most_recent_signup_form.id, player_id: player.id, recurring_session_id: tuesday_below_1500_session.id) }
+
+# wednesday player_intents
+wednesday_players[20..28].each { |player| PlayerIntent.create(signup_form_id: most_recent_signup_form.id, player_id: player.id, recurring_session_id: wednesday_1200_through_1600_session.id) }
+
+# thursday player_intents
+thursday_players[30..35].each { |player| PlayerIntent.create(signup_form_id: most_recent_signup_form.id, player_id: player.id, recurring_session_id: thursday_above_1500_session.id) }
+
+# saturday player_intents
+saturday_players[0..5].each { |player| PlayerIntent.create(signup_form_id: most_recent_signup_form.id, player_id: player.id, recurring_session_id: saturday_below_1300_session.id) }
