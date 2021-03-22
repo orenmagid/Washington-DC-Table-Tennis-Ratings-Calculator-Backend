@@ -1,9 +1,14 @@
 class Api::V1::GroupsController < ApplicationController
-  skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index, :show]
 
   def index
     @groups = Group.all
-    render json: @groups, include: ["players", "players.groups", "players.ratings", "players.ratings.session"]
+    render json: @groups, include: []
+  end
+
+  def show
+    @group = Group.find(params[:id])
+    render json: @group, include: ["players", "players.player_groups"]
   end
 
   def update

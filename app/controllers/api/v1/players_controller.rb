@@ -1,9 +1,14 @@
 class Api::V1::PlayersController < ApplicationController
-  skip_before_action :authorized, only: [:index, :create]
+  skip_before_action :authorized, only: [:index, :show, :create]
 
   def index
     @players = Player.all
-    render json: @players, include: ["groups", "matches", "ratings", "ratings.session"]
+    render json: @players, include: ["player_groups"]
+  end
+
+  def show
+    @player = Player.find(params[:id])
+    render json: @player, include: ["ratings", "ratings.session"]
   end
 
   def create
@@ -18,6 +23,6 @@ class Api::V1::PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:player).permit(:name, :email, :username, :password)
+    params.require(:player).permit(:name, :email, :username, :password, :id)
   end
 end

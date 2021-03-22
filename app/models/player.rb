@@ -14,6 +14,12 @@ class Player < ApplicationRecord
     end
   end
 
+  def self.add_most_recent_rating_to_player()
+    Player.all.each do |player|
+      player.update(most_recent_rating: player.ratings.last.value)
+    end
+  end
+
   def self.create_with_rating_and_group(name:, email: nil, rating: nil, group_id: nil, admin: false, username: nil, password: nil)
     player = Player.create(name: name, email: email, admin: admin, username: username, password: password)
     if group_id
