@@ -1,8 +1,14 @@
 class Api::V1::SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index, :show]
+
   def index
-    @sessions = Session.all
-    render json: @sessions, include: ["group", "matches", "matches.players", "matches.players.ratings"]
+    @sessions = Session.all.order("date DESC")
+    render json: @sessions
+  end
+
+  def show
+    @session = Session.find(params[:id])
+    render json: @session, include: ["matches", "matches.players", "group"]
   end
 
   def create
@@ -15,7 +21,7 @@ class Api::V1::SessionsController < ApplicationController
     session = Session.create(date: date)
     group = Group.find(group_id)
     group.sessions.push(session)
-    
+
     matches.each do |match|
       new_match = Match.create_match(match["winner"]["id"], match["loser"]["id"], session.id)
     end
@@ -25,8 +31,5 @@ class Api::V1::SessionsController < ApplicationController
     if session.save
       render json: session, status: :accepted
     end
-
   end
-
-
 end
