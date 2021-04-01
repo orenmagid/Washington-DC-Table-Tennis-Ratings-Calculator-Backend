@@ -25,76 +25,98 @@ class Session < ApplicationRecord
 
         if rating_difference >= 0
           if rating_difference <= 12
-            new_winner_value = winner_rating + 8
-            new_loser_value = loser_rating - 8
+            change = 8
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 13 && rating_difference <= 37
-            new_winner_value = winner_rating + 7
-            new_loser_value = loser_rating - 7
+            change = 7
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 38 && rating_difference <= 62
-            new_winner_value = winner_rating + 6
-            new_loser_value = loser_rating - 6
+            change = 6
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 63 && rating_difference <= 87
-            new_winner_value = winner_rating + 5
-            new_loser_value = loser_rating - 5
+            change = 5
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 88 && rating_difference <= 112
-            new_winner_value = winner_rating + 4
-            new_loser_value = loser_rating - 4
+            change = 4
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 113 && rating_difference <= 137
-            new_winner_value = winner_rating + 3
-            new_loser_value = loser_rating - 3
+            change = 3
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 138 && rating_difference <= 162
-            new_winner_value = winner_rating + 2
-            new_loser_value = loser_rating - 2
+            change = 2
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 163 && rating_difference <= 187
-            new_winner_value = winner_rating + 2
-            new_loser_value = loser_rating - 2
+            change = 2
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 188 && rating_difference <= 212
-            new_winner_value = winner_rating + 1
-            new_loser_value = loser_rating - 1
+            change = 1
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 213 && rating_difference <= 237
-            new_winner_value = winner_rating + 1
-            new_loser_value = loser_rating - 1
+            change = 1
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference >= 238
             new_winner_value = winner_rating
             new_loser_value = loser_rating
           end
         elsif rating_difference < 0
           if rating_difference >= -12
-            new_winner_value = winner_rating + 8
-            new_loser_value = loser_rating - 8
+            change = 8
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -13 && rating_difference >= -37
-            new_winner_value = winner_rating + 10
-            new_loser_value = loser_rating - 10
+            change = 10
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -38 && rating_difference >= -62
-            new_winner_value = winner_rating + 13
-            new_loser_value = loser_rating - 13
+            change = 13
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -63 && rating_difference >= -87
-            new_winner_value = winner_rating + 16
-            new_loser_value = loser_rating - 16
+            change = 16
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -88 && rating_difference >= -112
-            new_winner_value = winner_rating + 20
-            new_loser_value = loser_rating - 20
+            change = 20
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -113 && rating_difference >= -137
-            new_winner_value = winner_rating + 25
-            new_loser_value = loser_rating - 25
+            change = 25
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -138 && rating_difference >= -162
-            new_winner_value = winner_rating + 30
-            new_loser_value = loser_rating - 30
+            change = 30
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -163 && rating_difference >= -187
-            new_winner_value = winner_rating + 35
-            new_loser_value = loser_rating - 35
+            change = 35
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -188 && rating_difference >= -212
-            new_winner_value = winner_rating + 40
-            new_loser_value = loser_rating - 40
+            change = 40
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -213 && rating_difference >= -237
-            new_winner_value = winner_rating + 45
-            new_loser_value = loser_rating - 45
+            change = 45
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           elsif rating_difference <= -238
-            new_winner_value = winner_rating + 50
-            new_loser_value = loser_rating - 50
+            change = 50
+            new_winner_value = winner_rating + change
+            new_loser_value = loser_rating - change
           end
         end
 
+        Match.find(match.id).update(rating_change: change)
         ratings_hash[winner.id] = new_winner_value
         ratings_hash[loser.id] = new_loser_value
       end
