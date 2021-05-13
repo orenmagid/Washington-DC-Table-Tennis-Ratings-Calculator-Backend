@@ -21,7 +21,7 @@ class Player < ApplicationRecord
   end
 
   def self.create_with_rating_and_group(name:, email: nil, rating: nil, group_id: nil, admin: false, username: nil, password: nil)
-    player = Player.create(name: name, email: email, admin: admin, username: username, password: password)
+    player = Player.create(name: name, email: email, admin: admin, username: username, password: password, most_recent_rating: rating)
     if group_id
       group = Group.find(group_id)
       group.players.push(player)
