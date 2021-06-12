@@ -212,8 +212,4 @@ thursday_players[30..35].each { |player| PlayerIntent.create(signup_form_id: mos
 # saturday player_intents
 saturday_players[0..5].each { |player| PlayerIntent.create(signup_form_id: most_recent_signup_form.id, player_id: player.id, recurring_session_id: saturday_below_1300_session.id) }
 
-# Player.all.each do |player|
-#   if player.ratings.length > 1
-#     player.update(participated: true)
-#   end
-# end
+
