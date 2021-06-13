@@ -3,6 +3,19 @@ class Session < ApplicationRecord
   has_many :matches
   has_many :ratings
 
+  def self.recalculate_ratings(starting_session_id)
+    sessions_to_recalculate = Session.where('id >= ?', starting_session_id).order(date: :asc, created_at: :asc)
+
+    sessions_to_recalculate.each do |session|
+      session.ratings.destroy_all
+      session.matches.each { |match| match.update(rating_change: nil)}
+    end 
+
+    sessions_to_recalculate.each do |session|
+      session.calculate_ratings
+    end
+  end
+
   def calculate_ratings(ratings_hash = {}, first_pass = true)
     if ratings_hash.keys.length > 0
       adjustment_hash = ratings_hash.map do |player_id, rating_value|
