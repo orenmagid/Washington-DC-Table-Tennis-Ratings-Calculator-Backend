@@ -1,7 +1,10 @@
 class Session < ApplicationRecord
   belongs_to :group, optional: true
-  has_many :matches
+  has_many :matches, -> { order(created_at: :asc) }
   has_many :ratings
+
+  default_scope { order(date: :asc) }
+  scope :from_most_recent, -> { reorder(date: :desc) }
 
   def self.recalculate_ratings(starting_session_id)
     sessions_to_recalculate = Session.where('id >= ?', starting_session_id).order(date: :asc, created_at: :asc)
@@ -12,6 +15,7 @@ class Session < ApplicationRecord
     end 
 
     sessions_to_recalculate.each do |session|
+      session.reload
       session.calculate_ratings
     end
   end

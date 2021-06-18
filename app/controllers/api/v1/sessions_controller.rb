@@ -2,7 +2,7 @@ class Api::V1::SessionsController < ApplicationController
   skip_before_action :authorized, only: [:index, :show]
 
   def index
-    @sessions = Session.all.order("date DESC")
+    @sessions = Session.from_most_recent
     render json: @sessions
   end
 

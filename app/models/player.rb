@@ -3,7 +3,7 @@ class Player < ApplicationRecord
   has_many :groups, through: :player_groups
   has_many :player_matches
   has_many :matches, through: :player_matches
-  has_many :ratings
+  has_many :ratings, -> { order(created_at: :asc) }
 
   has_secure_password
   validates :username, uniqueness: { case_sensitive: false }
