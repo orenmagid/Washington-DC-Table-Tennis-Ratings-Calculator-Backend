@@ -5,8 +5,6 @@ Rails.application.routes.draw do
       resources :player_matches
       resources :matches
       resources :sessions
-      resources :player_groups
-      resources :groups
       resources :players
       post "/login", to: "auth#create"
       get "ping", to: "ping#index"
