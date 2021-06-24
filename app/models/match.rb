@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: matches
+#
+#  id            :bigint           not null, primary key
+#  session_id    :integer
+#  winner_id     :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  rating_change :integer
+#
 class Match < ApplicationRecord
   belongs_to :session, optional: true
   has_many :player_matches
