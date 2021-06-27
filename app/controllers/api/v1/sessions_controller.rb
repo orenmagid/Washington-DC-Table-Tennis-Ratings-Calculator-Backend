@@ -1,5 +1,5 @@
 class Api::V1::SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:index, :show, :create]
+  skip_before_action :authorized, only: [:index, :show]
 
   def index
     @sessions = Session.from_most_recent
@@ -7,8 +7,13 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def show
-    @session = Session.find(params[:id])
-    render json: @session, include: ["matches", "matches.players"]
+    date_array = params[:id].split("-")
+    month = date_array[0]
+    day = date_array[1]
+    year = date_array[2]
+    date = Time.new(year, month, day)
+    @sessions = Session.where(date: date.beginning_of_day..date.end_of_day)
+    render json: @sessions, include: ["matches", "matches.players"]
   end
 
   def create
