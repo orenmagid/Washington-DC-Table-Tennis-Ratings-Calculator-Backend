@@ -14,8 +14,8 @@ class Session < ApplicationRecord
   include Calculable
   include CalculableWithOldMethod
 
-  has_many :matches, -> { order(created_at: :asc) }
-  has_many :ratings
+  has_many :matches, dependent: :destroy, -> { order(created_at: :asc) }
+  has_many :ratings, dependent: :destroy
 
   default_scope { order(date: :asc) }
   scope :from_most_recent, -> { reorder(date: :desc) }
